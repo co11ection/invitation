@@ -65,9 +65,57 @@ const countdownElem = document.getElementById('countdown');
     const greeting = document.getElementById('guestGreeting');
     if (greeting) {
         if (guestName && guestName.trim()) {
-            greeting.textContent = `Дорогой(ая) ${guestName.replace(/</g, "&lt;").replace(/>/g, "&gt;")}, рады пригласить тебя на нашу свадьбу!`;
+            greeting.textContent = `Дорогой(ая) ${guestName.replace(/</g, "&lt;").replace(/>/g, "&gt;")}, рады пригласить вас на нашу свадьбу!`;
         } else {
-            greeting.textContent = 'Дорогой гость, рады пригласить тебя на нашу свадьбу!';
+            greeting.textContent = 'Дорогой гость, рады пригласить вас на нашу свадьбу!';
         }
     }
 });
+
+
+const URL_APP = "https://script.google.com/macros/s/AKfycbyscWPnzSFpf8Yj5LhI0xSuwZpCqRtCOiJ6bImrkXV5lgGUtLRw-JZy_AGqpGajpgfd/exec"
+
+const defaultForm = document.querySelector(".invite-form");
+
+defaultForm.action = URL_APP
+
+const isFormFilled = (details) => {
+    return details.name && details.phone;
+}
+
+
+const sendData = async (event) => {
+event.preventDefault();
+  const name = document.querySelector("[name=name]");
+  const phone = document.querySelector("[name=phone]");
+  const details = {
+    name: name.value.trim(),
+    phone: phone.value.trim(),
+  };
+
+  if (!isFormFilled(details)) return;
+
+  const formBody = new URLSearchParams(details).toString();
+
+  try {
+    const response = await fetch(URL_APP, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
+      },
+      mode: "cors",
+      body: formBody,
+    });
+    await response.json();
+    // modalButton.innerText = "Diajukan";
+  } catch (error) {
+    console.error(error);
+  }
+
+  name.value = "";
+  phone.value = "";
+}
+
+if (defaultForm) {
+    defaultForm.addEventListener("submit", sendData);
+}

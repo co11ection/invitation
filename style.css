@@ -7,6 +7,9 @@
   font-weight: 400;
   font-style: normal;
 }
+html{
+    scroll-behavior: smooth; /* Плавный скролл без JS */
+}
 
 .slide-one {
   position: relative;
@@ -14,7 +17,8 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  overflow: hidden;
+  /* overflow: hidden; */
+  max-height: 100vh;
 }
 
 .slide-one::before {
@@ -37,12 +41,23 @@
   align-items: center;
   padding: 20px;
 }
+.inside-one::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: inherit;
+  filter:  brightness(0.5);
+  z-index: 1;
+}
 .title {
   font-family: "Great Vibes", cursive;
   font-style: normal;
   font-weight: 800;
   font-size: 62px;
-  color: #fff;
+  background: linear-gradient(90deg, #FFD700 0%, #FFFACD 40%, #FFECB3 60%, #FFD700 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   text-align: center;
   letter-spacing: 10%;
   /* padding-top: 50px; */
@@ -50,7 +65,10 @@
 
 .countdown {
   font-size: 52px;
-  color: #fff;
+  background: linear-gradient(90deg, #FFD700 0%, #FFFACD 40%, #FFECB3 60%, #FFD700 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   margin: 20px 0;
   text-align: center;
   font-family: "Great Vibes", cursive;
@@ -78,10 +96,15 @@
   display: flex;
   align-items: center;
   flex-direction: column;
+  position: relative;
+  z-index: 10;
 }
 
 .link {
-  color: white;
+    background: linear-gradient(90deg, #FFD700 0%, #FFFACD 40%, #FFECB3 60%, #FFD700 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   font-size: 32px;
   font-weight: 500;
   font-family: "Great Vibes", cursive;
@@ -93,13 +116,16 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  overflow: hidden;
-  height: 100vh;
-  width: 100%;
+  /* overflow: hidden; */
+  max-height: 100vh;
+  width: 110%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  z-index: 2;
+  margin: 0;
+  left: -5%;
 }
 
 .slide-two::before {
@@ -107,7 +133,7 @@
   position: absolute;
   inset: 0;
   background: inherit;
-  filter: blur(2px) brightness(0.92);
+  filter: blur(6px) brightness(0.5);
   z-index: 1;
 }
 
@@ -129,7 +155,7 @@
 .inside-two {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
   padding: 20px;
   position: relative;
@@ -162,35 +188,52 @@
   font-size: 62px;
   margin-top: 20%;
   padding: 16px 32px;
-  background: linear-gradient(
-    90deg,
-    rgba(40, 20, 20, 0.65) 0%,
-    rgba(80, 40, 40, 0.45) 100%
-  );
-  border-radius: 22px;
-  color: #fff;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18);
   display: inline-block;
   animation: fadeInGreeting 1s ease-out forwards;
 }
 
 .invite-card {
-  background: rgba(255, 255, 255, 0.85);
+  /* background: rgba(255, 255, 255, 0.85);
   border-radius: 24px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18);
-  padding: 32px 36px;
-  margin-top: 32px;
-  max-width: 520px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18); */
+  
+  margin-top: -50px;
   width: 100%;
   backdrop-filter: blur(2px);
   transition: box-shadow 0.3s;
+  background: linear-gradient(90deg, #FFD700 0%, #FFFACD 40%, #FFECB3 60%, #FFD700 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .invite-card:hover {
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.22);
 }
 
+.invite-card * {
+font-family: "Great Vibes", cursive;
+
+}
+.testText {
+font-family: "Great Vibes", cursive !important;
+display: flex;
+align-items: center;
+justify-content: center;
+letter-spacing: 60%;
+gap: 9px;
+  font-size: 32px;
+}
+
+.inviteTestTextMain{
+    letter-spacing: 20%;
+    width: 80%;
+    margin: auto;
+    font-size: 32px;
+}
+
 .invite-text {
+font-family: "Great Vibes", cursive;
   color: #5a3e3e;
   font-size: 1.35rem;
   line-height: 1.7;
@@ -208,15 +251,7 @@
   position: relative;
   z-index: 2;
   display: inline-block;
-  padding: 18px 38px;
-  background: linear-gradient(
-    90deg,
-    rgba(40, 20, 20, 0.65) 0%,
-    rgba(80, 40, 40, 0.45) 100%
-  );
-  border-radius: 22px;
-  color: #fff;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18);
+
   font-family: "Great Vibes", cursive;
   font-size: 2.7rem;
   margin-bottom: 18px;
@@ -238,26 +273,120 @@
   font-family: "Great Vibes", cursive;
   font-style: normal;
   font-weight: 800;
-  color: #fff;
-  text-align: center;
   font-size: 2.7rem;
   padding: 18px 38px;
-  background: linear-gradient(
-    90deg,
-    rgba(40, 20, 20, 0.65) 0%,
-    rgba(80, 40, 40, 0.45) 100%
-  );
-  border-radius: 22px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18);
   display: inline-block;
   margin-bottom: 18px;
   letter-spacing: 1.5px;
   opacity: 0;
   transform: translateY(20px);
   animation: fadeInGreeting 1s ease-out forwards;
+  text-align: center;
+  /* Градиент для золотого текста */
+  background: linear-gradient(90deg, #FFD700 0%, #FFFACD 40%, #FFECB3 60%, #FFD700 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .fancy-title .span {
   font-family: "Marck Script", cursive;
   font-weight: 400;
+  color: gold;
+}
+
+
+.timeline {
+  position: relative;
+  max-height: 60vh;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding: 40px 0;
+}
+
+.timeline::after {
+  content: "";
+  height: 100%;
+  width: 2px;
+  background-color: black;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.timeline-block {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  padding: 0 40px;
+}
+
+.timeline-block-right{
+      position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  align-self: flex-end;
+  text-align: start;
+  width: 100%;
+  padding: 0 40px;
+}
+
+.timeline-block-left{
+        position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-self: flex-start;
+  text-align: end;
+  width: 100%;
+  padding: 0 40px;
+}
+
+.timeline-left,
+.timeline-right {
+  width: 45%;
+  max-width: 45%;
+  
+}
+
+.timeline-left {
+  align-items: flex-end;
+}
+
+.timeline-right {
+  align-items: flex-start;
+}
+
+.timeline-time {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+
+
+.timeline-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-top: 4px;
+}
+
+.timeline-block::before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 12px;
+  height: 12px;
+  background-color: black;
+  border-radius: 50%;
+  z-index: 2;
 }

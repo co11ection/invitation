@@ -26,7 +26,7 @@ body {
 }
 
 .main-wrapper {
-  height: 100vh;
+  height: 90vh;
   overflow-y: auto;
   scroll-snap-type: y mandatory;
   -webkit-overflow-scrolling: touch;
@@ -34,8 +34,8 @@ body {
 
 /* Основные блоки с фиксированной высотой 100vh */
 .slide {
-  min-height: 100vh;
-  height: 100vh;
+  min-height: 90vh;
+  height: 90vh;
   width: 100%;
   position: relative;
   overflow: hidden;
@@ -368,7 +368,7 @@ body {
 .slide-program {
   background: #f8f8f8;
   height: auto;
-  min-height: 100vh;
+  min-height: 90vh;
 }
 
 .inside-program {
@@ -557,7 +557,7 @@ body {
 
 .slide-four {
   width: 100%;
-  min-height: 100vh;
+  min-height: 90vh;
 }
 .inside-four {
   display: flex;
@@ -574,7 +574,7 @@ body {
   flex-direction: column;
   align-items: flex-end;
   justify-content: flex-end;
-  height: 100vh;
+  height: 90vh;
 }
 /* Анимации */
 @-webkit-keyframes fadeInGreeting {

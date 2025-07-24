@@ -578,6 +578,7 @@ body {
   justify-content: flex-end;
   height: 90vh;
 }
+
 /* Анимации */
 @-webkit-keyframes fadeInGreeting {
   to {

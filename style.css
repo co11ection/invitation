@@ -49,6 +49,7 @@ body {
   background-repeat: no-repeat;
   background-position: center;
   background-attachment: fixed;
+  background-color: #f8e9b6;
 }
 
 .slide-one::before {
@@ -177,6 +178,7 @@ body {
   background-repeat: no-repeat;
   background-position: center;
   background-attachment: fixed;
+  background-color: #e9d7b6;
 }
 
 .slide-two::before {
@@ -590,6 +592,13 @@ body {
     opacity: 1;
     -webkit-transform: translateY(0);
     transform: translateY(0);
+  }
+}
+
+@media (max-width: 900px) {
+  .slide-one,
+  .slide-two {
+    background-attachment: scroll !important;
   }
 }
 
